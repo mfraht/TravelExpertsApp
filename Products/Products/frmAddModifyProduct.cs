@@ -17,20 +17,19 @@ namespace ProductMaintenance
         {
             InitializeComponent();
         }
-
+        
         private void frmAddModifyProduct_Load(object sender, EventArgs e)
         {
+            // Agents can add products to the package using a list
             context = new TravelExpertsContext();    // Instantiate the context
             currentSupplier = context.Suppliers.First();   // Load the first Product
             Object[] cIds = context.Suppliers.Select(c => (Object)c.SupName).ToArray();
 
             BoxSupplier.Items.AddRange(cIds);
 
-
             if (AddProduct)
             {
                 this.Text = "Add Product";
-
             }
             else
             {
@@ -41,11 +40,8 @@ namespace ProductMaintenance
 
         private void DisplayProduct()
         {
-            //txtCode.Text = Product.ProductId.ToString();
             txtName.Text = Product.ProdName;
-
         }
-
         private void btnAccept_Click(object sender, EventArgs e)
         {
             if (IsValidData())
@@ -77,18 +73,12 @@ namespace ProductMaintenance
 
         private void LoadProductData()
         {
-            //Product.ProductId = Convert.ToInt32(txtCode.Text);
             Product.ProdName = txtName.Text;
-
-            //Product.OnHandQuantity = Convert.ToInt32(txtOnHand.Text);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
-
-
         private void BoxSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
             Suppliers supplier = (from p in context.Suppliers
@@ -96,7 +86,6 @@ namespace ProductMaintenance
                                   select p).Single();
             supplierId = supplier.SupplierId;
             currentSupplier = context.Suppliers.Find(supplier.SupplierId);   // Load Product ID=1
-
         }
     }
 }

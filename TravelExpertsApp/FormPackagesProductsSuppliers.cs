@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
 using ProductMaintenance.TravelExpertsModels;
-using ProductMaintenance;
 
 
 namespace TravelExpertsApp
@@ -23,9 +16,7 @@ namespace TravelExpertsApp
         }
         public int packageId;
         public int packagesuppId;
-        //public PackagesProductsSuppliers packProdSupp { get; set; } // selected product on the main form
         TravelExpertsContext context = new TravelExpertsContext();
-        private PackagesProductsSuppliers selectedpackProdSupp;
         private Packages selectedpack;
 
 

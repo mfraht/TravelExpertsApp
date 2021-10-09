@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProductMaintenance
 {
@@ -14,7 +9,6 @@ namespace ProductMaintenance
         public static string IsPresent(string value, string name)
         {
             string msg = "";
-            //DateTime temp;
             if (value== null)
                 return msg += " ";
             else
@@ -57,16 +51,6 @@ namespace ProductMaintenance
             return msg;
         }
 
-        //public static string IsDate(string value, string name)
-        //{
-        //    string msg = "";
-        //    if (!DateTime.TryParse(value, out _))
-        //    {
-        //        msg += name + " must be a valid date." + LineEnd;
-        //    }
-        //    return msg;
-        //}
-
         public static string IsDate(string dateValue, string name)
         {
             string msg = "";
@@ -76,7 +60,5 @@ namespace ProductMaintenance
             else
                 return msg += name + " must be a valid date in the format MM/DD/YYYY or YYYY-MM-DD." + LineEnd;
         }
-
-
     }
 }

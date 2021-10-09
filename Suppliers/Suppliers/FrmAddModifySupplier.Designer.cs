@@ -73,6 +73,7 @@ namespace ProductMaintenance
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(186, 27);
             this.txtSupplierName.TabIndex = 0;
+            this.txtSupplierName.Tag = "Name";
             // 
             // btnAccept
             // 

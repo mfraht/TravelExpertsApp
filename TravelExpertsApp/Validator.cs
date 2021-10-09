@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace TravelExpertsApp
 {
@@ -56,16 +51,6 @@ namespace TravelExpertsApp
             return msg;
         }
 
-        //public static string IsDate(string value, string name)
-        //{
-        //    string msg = "";
-        //    if (!DateTime.TryParse(value, out _))
-        //    {
-        //        msg += name + " must be a valid date." + LineEnd;
-        //    }
-        //    return msg;
-        //}
-
         public static string IsDate(string dateValue, string name)
         {
             string msg = "";
@@ -75,7 +60,5 @@ namespace TravelExpertsApp
             else
                 return msg += name + " must be a valid date in the format MM/DD/YYYY or YYYY-MM-DD." + LineEnd;
         }
-
-
     }
 }

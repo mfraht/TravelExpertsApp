@@ -5,9 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using PackageMaintenance;
 using ProductMaintenance.TravelExpertsModels;
-//using PackageMaintenance.TravelExpertsModels;
 
 /// <summary>
 /// To Create a Windows Form Application "PackageMaintenance" that let the user maintain packages.
@@ -19,7 +17,6 @@ namespace PackageMaintenance
 {
     public partial class frmPackages : Form
     {
-        //public PackagesProductsSuppliers packProdSup { get; set; } // selected product on the main form
         public int packageId;
         public int packagesuppId;
 
@@ -30,14 +27,12 @@ namespace PackageMaintenance
 
         private TravelExpertsContext context = new TravelExpertsContext();
         private Packages selectedPackage;
-        private PackagesProductsSuppliers selectedpackProdSup;
-        //private ProductMaintenance.TravelExpertsModels.Packages selectedPackage = null;
 
         private void frmPackageMaintenance_Load(object sender, EventArgs e)
         {
             DisplayPackages();
         }
-
+        //The linking between tables should be done by selecting from controls, not entering foreign keys.
         private void DisplayPackages ()
         {
             dgvPackages.Columns.Clear(); // clears old content
@@ -175,7 +170,7 @@ namespace PackageMaintenance
             }
         }
 
-
+        //Agents can delete product_suppliers
         private void RemovePackageProdSup()
         {
             var qs = (from PackProdSup in context.PackagesProductsSuppliers
@@ -252,7 +247,7 @@ namespace PackageMaintenance
             }
             this.DisplayPackages();
         }
-
+        //Agents can edit package_product_suppliers
         public void UpdatePackage(int packageId, int productSupplierId)
         {
             PackagesProductsSuppliers packProdSup = new PackagesProductsSuppliers();

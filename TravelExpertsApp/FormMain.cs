@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Workshop3 - Threaded Project for OOSD (PROJ-009-004)
+// Travel Experts: Desktop application C#.NET
+// This code is created by: Mohamed Ibrahim 
+// Date: October 8, 2021
+// Version: 1.0
+// Contact: email: mfraht@gmail.com
+/*
+This application is built using C# as a desktop application. The navigation is user-friendly. 
+The application is functionality so that the user maintain the data in the tables: Packages, 
+Products, Products_suppliers, Suppliers, Packages_products_suppliers 
+*/
+using System;
 using System.Windows.Forms;
 
 namespace TravelExpertsApp

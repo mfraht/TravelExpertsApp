@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using ProductMaintenance.Models;
 
@@ -64,11 +59,7 @@ namespace ProductMaintenance
         {
             bool success = true;
             string errorMessage = "";
-
-            //errorMessage += Validator.IsInt32(txtSupplierId.Text, txtSupplierId.Tag.ToString());
-            //errorMessage += Validator.IsPresent(txtSupplierName.Text, txtSupplierName.Tag.ToString());
-          
-
+            errorMessage += Validator.IsPresent(txtSupplierName.Text, txtSupplierName.Tag.ToString());
             if (errorMessage != "")
             {
                 success = false;
@@ -79,9 +70,7 @@ namespace ProductMaintenance
 
         private void LoadSupplierData()
         {
-            //Supplier.SupplierId = Convert.ToInt32(txtSupplierId.Text);
-            Supplier.SupName = txtSupplierName.Text;
-            
+            Supplier.SupName = txtSupplierName.Text;    
         }
     }
 }

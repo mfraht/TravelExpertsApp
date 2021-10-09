@@ -33,10 +33,6 @@ namespace ProductMaintenance
                 .ToList();
 
             dgvProducts.DataSource = products;
-
-
-
-            // format the column header
             dgvProducts.EnableHeadersVisualStyles = false;
             dgvProducts.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
             dgvProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.DeepSkyBlue;
@@ -57,9 +53,8 @@ namespace ProductMaintenance
         {
             int prodId = Convert.ToInt32(dgvProducts.Rows[e.RowIndex].Cells[0].Value);
             selectedProduct = context.Products.Find(prodId);
-
         }
-
+        //Agents can edit products
         private void ModifyProduct()
         {
             var addModifyProductForm = new frmAddModifyProduct()
@@ -90,7 +85,7 @@ namespace ProductMaintenance
                 }
             }
         }
-
+        //Agents can delete products
         private void DeleteProduct()
         {
             DialogResult result =
@@ -121,7 +116,7 @@ namespace ProductMaintenance
                 }
             }
         }
-
+        //Agents can remove product_suppliers
         private void RemoveProdSup()
         {
             var qs = (from prodSup in context.ProductsSuppliers
@@ -143,7 +138,7 @@ namespace ProductMaintenance
             context.ProductsSuppliers.Remove(ProdSup);
             context.SaveChanges();
         }
-
+        //Agents can add products
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addModifyProductForm = new frmAddModifyProduct()
@@ -172,6 +167,7 @@ namespace ProductMaintenance
             }
         }
 
+        //Agents can add/edit product_suppliers
         public void UpdateProdSupp(int productId, int supplierId)
         {
             ProductsSuppliers prodSup = new ProductsSuppliers();

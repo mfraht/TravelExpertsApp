@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-//using ProductMaintenance.Models;
-using PackageMaintenance;
 using ProductMaintenance.TravelExpertsModels;
 
 namespace PackageMaintenance
@@ -30,10 +28,7 @@ namespace PackageMaintenance
             context = new TravelExpertsContext();    // Instantiate the context
             currentProduct = context.Products.First();   // Load the first Product
             Object[] cIds = context.Products.Select(c => (Object)c.ProdName).ToArray();
-
             productNameBox.Items.AddRange(cIds);
-
-
             if (AddPackage)
             {
                 this.Text = "Add Package";
@@ -79,6 +74,8 @@ namespace PackageMaintenance
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        //Package Name and Package Name and Description cannot be null
         private bool IsValidData()
         {
             bool success = true;
@@ -97,7 +94,6 @@ namespace PackageMaintenance
 
         private void LoadPackageData()
         {
-            //Package.PackageId = txtPackageId.Text;
             Package.PkgName = txtPkgName.Text;
             Package.PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
             Package.PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
@@ -111,7 +107,6 @@ namespace PackageMaintenance
             Products prod = (from p in context.Products
                              where p.ProdName == productNameBox.SelectedItem.ToString()
                              select p).Single();
-            //int prodIndex = Convert.ToInt32(productNameBox.SelectedItem);
             currentProduct = context.Products.Find(prod.ProductId);   // Load Product ID=1
             int prodSupId = Convert.ToInt32(currentProduct.ProductId);
             currentProdSup = context.ProductsSuppliers.Find(prodSupId);

@@ -33,8 +33,6 @@ namespace ProductMaintenance
         {
             txtId.Text = Product.ProductId.ToString();
             txtName.Text = Product.ProdName;
-            //txtVersion.Text = Product.Version.ToString("N2");
-            //txtDate.Text = Product.ReleaseDate.ToShortDateString();
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -56,10 +54,7 @@ namespace ProductMaintenance
             bool success = true;
             string errorMessage = "";
 
-            errorMessage += Validator.IsInt32(txtId.Text, txtId.Tag.ToString());
             errorMessage += Validator.IsPresent(txtName.Text, txtName.Tag.ToString());
-            //errorMessage += Validator.IsDecimal(txtVersion.Text, txtVersion.Tag.ToString());
-            //errorMessage += Validator.IsDate(txtDate.Text, txtDate.Tag.ToString());
 
             if (errorMessage != "")
             {
@@ -73,9 +68,6 @@ namespace ProductMaintenance
         {
             Product.ProductId = Convert.ToInt32(txtId.Text);
             Product.ProdName = txtName.Text;
-            //Product.Version = Convert.ToDecimal(txtVersion.Text);
-            //Product.ReleaseDate = Convert.ToDateTime(txtDate.Text);
-            //Product.OnHandQuantity = Convert.ToInt32(txtOnHand.Text);
         }
     }
 }

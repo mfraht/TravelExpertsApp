@@ -54,12 +54,10 @@ namespace SupplierMaintenance
 
         private void dgvSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
                 int supplierId = Convert.ToInt32(dgvSuppliers.Rows[e.RowIndex].Cells[0].Value);
                 selectedSupplier = context.Suppliers.Find(supplierId);
-           
         }
-
+        //Agents can edit suppliers
         private void ModifySupplier()
         {
             var addModifySupplierForm = new ProductMaintenance.FrmAddModifySupplier() { 
@@ -89,7 +87,7 @@ namespace SupplierMaintenance
                 }
             }
         }
-
+        //Agents can delete suppliers
         private void DeleteSupplier()
         {
             DialogResult result =
@@ -118,7 +116,7 @@ namespace SupplierMaintenance
                 }
             }
         }
-
+        //Agents can add suppliers
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addModifySupplierForm = new ProductMaintenance.FrmAddModifySupplier() { 

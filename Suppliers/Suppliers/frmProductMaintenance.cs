@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-//using ProductMaintenance.Model;
 using ProductMaintenance.Models;
 
 namespace ProductMaintenance
@@ -34,23 +33,6 @@ namespace ProductMaintenance
                 .ToList();
 
             dgvProducts.DataSource = products;
-
-            // add column for modify button
-            //var modifyColumn = new DataGridViewButtonColumn() { 
-            //    UseColumnTextForButtonValue = true,
-            //    HeaderText = "",
-            //    Text = "Modify"
-            //};
-            //dgvProducts.Columns.Add(modifyColumn);
-
-            // add column for delete button
-            //var deleteColumn = new DataGridViewButtonColumn() {
-            //    UseColumnTextForButtonValue = true, 
-            //    HeaderText = "",
-            //    Text = "Delete"
-            //};
-            //dgvProducts.Columns.Add(deleteColumn);
-
             // format the column header
             dgvProducts.EnableHeadersVisualStyles = false;
             dgvProducts.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
@@ -67,34 +49,12 @@ namespace ProductMaintenance
             // format the second column
             dgvProducts.Columns[1].Width = 310;
 
-            // format the third column
-            //dgvProducts.Columns[2].HeaderText = "Version";
-            //dgvProducts.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //dgvProducts.Columns[2].Width = 90;
-            //dgvProducts.Columns[2].DefaultCellStyle.Format = "F1";
-            //dgvProducts.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
+          }
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // store index values for Modify and Delete button columns
-            //const int ModifyIndex = 4;
-            //const int DeleteIndex = 5;
-
-            //if (e.ColumnIndex == ModifyIndex || e.ColumnIndex == DeleteIndex)
-            //{
                 int productId = Convert.ToInt32(dgvProducts.Rows[e.RowIndex].Cells[0].Value);
                 selectedProduct = context.Products.Find(productId);
-            //}
-
-            //if (e.ColumnIndex == ModifyIndex)
-            //{
-            //    ModifyProduct();
-            //}
-            //else if (e.ColumnIndex == DeleteIndex)
-            //{
-            //    DeleteProduct();
-            //}
         }
 
         private void ModifyProduct()
@@ -223,7 +183,6 @@ namespace ProductMaintenance
             this.Close();
         }
 
-
         private void ModifyBtn_Click(object sender, EventArgs e)
         {
             if (selectedProduct != null)
@@ -234,6 +193,5 @@ namespace ProductMaintenance
             if (selectedProduct != null)
                 DeleteProduct();
         }
-
     }
 }
