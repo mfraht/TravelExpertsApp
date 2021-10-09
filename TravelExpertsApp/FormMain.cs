@@ -1,9 +1,7 @@
 ﻿// Workshop3 - Threaded Project for OOSD (PROJ-009-004)
 // Travel Experts: Desktop application C#.NET
-// This code is created by: Mohamed Ibrahim 
 // Date: October 8, 2021
 // Version: 1.0
-// Contact: email: mfraht@gmail.com
 /*
 This application is built using C# as a desktop application. The navigation is user-friendly. 
 The application is functionality so that the user maintain the data in the tables: Packages, 
