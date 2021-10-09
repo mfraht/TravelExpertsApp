@@ -14,11 +14,12 @@ namespace ProductMaintenance
         public static string IsPresent(string value, string name)
         {
             string msg = "";
-            if (value == "")
-            {
-                msg += name + " is a required field." + LineEnd;
-            }
-            return msg;
+            //DateTime temp;
+            if (value== null)
+                return msg += " ";
+            else
+                return msg += name + " is a required field." + LineEnd;
+       
         }
 
         public static string IsDecimal(string value, string name)

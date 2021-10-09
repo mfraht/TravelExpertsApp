@@ -83,8 +83,9 @@ namespace PackageMaintenance
         {
             bool success = true;
             string errorMessage = "";
-           // errorMessage += Validator.IsPresent(txtPackageId.Text, txtPackageId.Tag.ToString());
+            errorMessage += Validator.IsPresent(txtPackageId.Text, txtPackageId.Tag.ToString());
             errorMessage += Validator.IsPresent(txtPkgName.Text, txtPkgName.Tag.ToString());
+            errorMessage += Validator.IsPresent(txtPkgDescription.Text, txtPkgDescription.Tag.ToString());
             errorMessage += Validator.IsDecimal(txtPkgBasePrice.Text, txtPkgBasePrice.Tag.ToString());
             errorMessage += Validator.IsDate(txtPkgStartDate.Text, txtPkgStartDate.Tag.ToString());
             if (errorMessage != "")       {

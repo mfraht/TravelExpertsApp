@@ -22,6 +22,7 @@ namespace ProductMaintenance.TravelExpertsModels
         public DateTime? PkgStartDate { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? PkgEndDate { get; set; }
+        [Required]
         [StringLength(50)]
         public string PkgDesc { get; set; }
         [Column(TypeName = "money")]

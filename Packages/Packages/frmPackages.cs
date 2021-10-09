@@ -43,7 +43,8 @@ namespace PackageMaintenance
             dgvPackages.Columns.Clear(); // clears old content
             var packages = context.Packages
                 .OrderBy(p => p.PackageId)
-                .Select(p => new { p.PackageId, p.PkgName, p.PkgStartDate, p.PkgEndDate, p.PkgDesc, p.PkgBasePrice, p.PkgAgencyCommission })
+                .Select(p => new { p.PackageId, p.PkgName, p.PkgStartDate, 
+                    p.PkgEndDate, p.PkgDesc, p.PkgBasePrice, p.PkgAgencyCommission })
                 .ToList();
 
             dgvPackages.DataSource = packages;
@@ -110,6 +111,18 @@ namespace PackageMaintenance
                 try
                 {
                     selectedPackage = addModifyPackageForm.Package;
+                    //Checking if Agency Commission is greater than Base Price
+                    if (selectedPackage.PkgAgencyCommission > selectedPackage.PkgBasePrice)
+                    {
+                        MessageBox.Show("Agency Commission couldn't be greater than Base Price");
+                        addModifyPackageForm.ShowDialog();
+                    }
+                    //Checking if Package End Date must be later than Package Start Date or not
+                    if (selectedPackage.PkgStartDate > selectedPackage.PkgEndDate)
+                    {
+                        MessageBox.Show("Start Date couldn't be later than End Date");
+                        addModifyPackageForm.ShowDialog();
+                    }
                     context.SaveChanges();
                     DisplayPackages();
                 }
@@ -193,6 +206,18 @@ namespace PackageMaintenance
                 try
                 {
                     selectedPackage = addModifyPackageForm.Package;
+                    //Checking if Agency Commission is greater than Base Price
+                    if (selectedPackage.PkgAgencyCommission > selectedPackage.PkgBasePrice)
+                    {
+                        MessageBox.Show("Agency Commission couldn't be greater than Base Price");
+                        addModifyPackageForm.ShowDialog();
+                    }
+                    //Checking if Package End Date must be later than Package Start Date or not
+                    if (selectedPackage.PkgStartDate > selectedPackage.PkgEndDate)
+                    {
+                        MessageBox.Show("Start Date couldn't be later than End Date");
+                        addModifyPackageForm.ShowDialog();
+                    }
                     context.Packages.Add(selectedPackage);
                     context.SaveChanges();
                     UpdatePackage(selectedPackage.PackageId, addModifyPackageForm.productSupplierId);

@@ -13,7 +13,7 @@ namespace PackageMaintenance
 
         public static string IsPresent(string value, string name)
         {
-            string msg = "";
+            string msg = " ";
             if (value == "")
             {
                 msg += name + " is a required field." + LineEnd;

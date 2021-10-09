@@ -160,6 +160,7 @@
             this.txtPkgDescription.Name = "txtPkgDescription";
             this.txtPkgDescription.Size = new System.Drawing.Size(125, 30);
             this.txtPkgDescription.TabIndex = 4;
+            this.txtPkgDescription.Tag = "Description";
             // 
             // label5
             // 
